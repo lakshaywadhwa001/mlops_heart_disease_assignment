@@ -23,3 +23,6 @@ The end-to-end pipeline video is hosted on Google Drive: [watch the recording](h
 | `12-docker-build-success.png` | Docker build terminal output — all 7 build steps completed, image tagged `heart-disease-api:latest` |
 | `13-kubectl-pods-health-check.png` | Terminal: `curl /health` via Kubernetes port-forward returning `model_loaded: true` |
 | `14-kubectl-predict-curl.png` | Terminal: `curl /predict` via Kubernetes port-forward returning `{"prediction":0,"label":"no_disease","confidence":0.5901,...}` |
+| `15-mlflow-training-runs.png` | MLflow UI — heart-disease-model-development experiment showing both runs (Random Forest and Logistic Regression) |
+| `16-mlflow-run-metrics.png` | MLflow Logistic Regression run — all 8 metrics logged (accuracy, precision, recall, ROC-AUC means and std deviations) |
+| `17-mlflow-run-artifacts.png` | MLflow Logistic Regression run — artifacts tab showing outer CV metrics plot with accuracy 0.858, precision 0.864, recall 0.820, ROC-AUC 0.920 |
