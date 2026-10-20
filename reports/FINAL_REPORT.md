@@ -1,6 +1,6 @@
 # AIMLCZG523 MLOps Assignment 01: Heart Disease Classification
 
-**Report date:** 2026-10-19
+**Report date:** 2026-10-20
 **Student:** Lakshay Wadhwa
 **Email:** 2025ae05567@wilp.bits-pilani.ac.in
 **BITS ID:** 2025AE05567
@@ -25,7 +25,7 @@ Both candidates use a scikit-learn pipeline. Numeric columns receive median impu
 | Model               |        Accuracy |       Precision |          Recall |         ROC-AUC |
 | ------------------- | --------------: | --------------: | --------------: | --------------: |
 | Logistic Regression | 0.858 +/- 0.056 | 0.864 +/- 0.060 | 0.820 +/- 0.084 | 0.920 +/- 0.024 |
-| Random Forest       | 0.828 +/- 0.018 | 0.823 +/- 0.059 | 0.806 +/- 0.055 | 0.916 +/- 0.023 |
+| Random Forest       | 0.825 +/- 0.022 | 0.817 +/- 0.062 | 0.806 +/- 0.055 | 0.914 +/- 0.024 |
 
 Logistic Regression was selected by mean outer-fold ROC-AUC. Its search covers `C` values 0.1, 1, and 10 and optional balanced class weights. Random Forest searches maximum depth, minimum leaf size, and optional class weights with 200 trees. These are cross-validation estimates, not independent holdout-set results. `reports/model_comparison.csv` contains the full-precision results and tuning choices.
 
@@ -78,4 +78,4 @@ flowchart LR
 
 The repository contains the acquisition and preprocessing scripts, cleaned dataset, EDA notebook and figures, model training and tests, MLflow tracking artifacts, API, Dockerfile, CI workflow, Kubernetes manifests, monitoring configuration, and deployment screenshots. The local Kubernetes API has no public URL; see the README for access instructions.
 
-**Video demonstration:** [Watch the end-to-end pipeline recording](https://drive.google.com/file/d/1ZjDVIeZ9_H_q8ydrz-FwBvNCeN9P8ndM/view?usp=sharing).
+**Video demonstration:** [Watch the end-to-end pipeline recording]().
