@@ -78,4 +78,4 @@ flowchart LR
 
 The repository contains the acquisition and preprocessing scripts, cleaned dataset, EDA notebook and figures, model training and tests, MLflow tracking artifacts, API, Dockerfile, CI workflow, Kubernetes manifests, monitoring configuration, and deployment screenshots. The local Kubernetes API has no public URL; see the README for access instructions.
 
-**Video demonstration:** [Watch the end-to-end pipeline recording]().
+**Video demonstration:** [Watch the end-to-end pipeline recording](https://drive.google.com/file/d/1c4LTwLz4LBbqluxbPA-nOR56SGWHZajE/view?usp=sharing).
