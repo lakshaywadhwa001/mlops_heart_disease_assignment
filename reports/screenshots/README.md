@@ -8,6 +8,7 @@ The end-to-end pipeline video is hosted on Google Drive: [watch the recording](h
 
 | File | Contents |
 |------|----------|
+| `00-kubectl-cluster-info.png` | `kubectl get nodes` + `kubectl get all -n heart-disease` — cluster node Ready, all pods/services/deployments/replicasets running |
 | `01-kubernetes-workloads.png` | `kubectl get pods,services -n heart-disease` — all three pods (API, Prometheus, Grafana) Running |
 | `02-health-endpoint.png` | `GET /health` returning `{"status":"ok","model_loaded":"true"}` |
 | `03-predict-endpoint.png` | `POST /predict` returning prediction, label, confidence, and probabilities |

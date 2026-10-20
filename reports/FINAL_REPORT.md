@@ -6,7 +6,7 @@
 **BITS ID:** 2025AE05567
 **Dataset:** UCI Heart Disease, processed Cleveland subset  
 **Repository URL:** [github.com/lakshaywadhwa001/mlops_heart_disease_assignment](https://github.com/lakshaywadhwa001/mlops_heart_disease_assignment)
-**Deployment:** Local Minikube; API available by port-forward while the VM and forward are running.
+**Deployment:** Local Kubernetes cluster; API available by port-forward while the cluster and forward are running.
 
 ## 1. Objective and scope
 
@@ -14,7 +14,7 @@ This project builds a reproducible binary classifier for the presence of heart d
 
 ## 2. Data acquisition and EDA
 
-The raw processed Cleveland data is downloaded from the UCI Heart Disease repository by `src.data_acquisition`. The acquisition script validates the 14-column schema and target domain before saving the source file. The 303-row source has 4 unknown `ca` values and 2 unknown `thal` values. Continuous features are median-imputed; categorical features are mode-imputed. The original severity values are retained for the initial audit, then binarized for modeling. Exact duplicates were inspected and none were found.
+The raw processed Cleveland data is downloaded from the UCI Heart Disease repository by `src.data.acquisition`. The acquisition script validates the 14-column schema and target domain before saving the source file. The 303-row source has 4 unknown `ca` values and 2 unknown `thal` values. Continuous features are median-imputed; categorical features are mode-imputed. The original severity values are retained for the initial audit, then binarized for modeling. Exact duplicates were inspected and none were found.
 
 The EDA artifacts are `reports/figures/class_balance.png`, `reports/figures/feature_histograms.png`, and `reports/figures/correlation_heatmap.png`. The binary class counts are 164 without disease (54.13%) and 139 with disease (45.87%). The encoded EDA CSV has 28 predictors and a binary `target`. The notebook uses full-data imputations only for descriptive EDA; the modeling pipelines fit preprocessing inside each training fold.
 
@@ -49,7 +49,7 @@ The Dockerfile builds a Python 3.14.7 image from the versioned package requireme
 
 `k8s/heart-disease-api.yaml` defines a one-replica Deployment and `LoadBalancer` Service, with startup/readiness/liveness probes, resource limits, non-root execution, and read-only root filesystem. `k8s/monitoring.yaml` deploys Prometheus and Grafana, configures API scraping, provisions a dashboard, and uses ClusterIP services for internal monitoring access. Grafana uses a Kubernetes Secret for its admin password; monitoring storage is ephemeral for this local demonstration.
 
-**Local deployment verified:** Minikube 1.35.0 on Kubernetes 1.32.0, deployed 2026-10-19. API, Prometheus, and Grafana each rolled out with one ready replica. The API is exposed by a `LoadBalancer` Service, and a VM port-forward served successful health, prediction, and metrics requests. Prometheus reported the `heart-disease-api` target `up`; Grafana 12.1.1 returned a healthy database status and its provisioned dashboard was found. The API is not publicly hosted; follow the README port-forward instructions for local access.
+**Local deployment verified:** Local Kubernetes cluster, deployed 2026-10-20. API, Prometheus, and Grafana each rolled out with one ready replica. The API is exposed by a `LoadBalancer` Service, and a port-forward served successful health, prediction, and metrics requests. Prometheus reported the `heart-disease-api` target `up`; Grafana returned a healthy database status and its provisioned dashboard was found. The API is not publicly hosted; follow the README port-forward instructions for local access.
 
 ## 8. Architecture
 
@@ -76,6 +76,6 @@ flowchart LR
 
 ## 9. Submission checklist
 
-The repository contains the acquisition and preprocessing scripts, cleaned dataset, EDA notebook and figures, model training and tests, MLflow tracking artifacts, API, Dockerfile, CI workflow, Kubernetes manifests, monitoring configuration, and deployment screenshots. The report is provided in Markdown and PDF. The local Minikube API has no public URL; see the README for access instructions.
+The repository contains the acquisition and preprocessing scripts, cleaned dataset, EDA notebook and figures, model training and tests, MLflow tracking artifacts, API, Dockerfile, CI workflow, Kubernetes manifests, monitoring configuration, and deployment screenshots. The local Kubernetes API has no public URL; see the README for access instructions.
 
 **Video demonstration:** [Watch the end-to-end pipeline recording](https://drive.google.com/file/d/1ZjDVIeZ9_H_q8ydrz-FwBvNCeN9P8ndM/view?usp=sharing).
