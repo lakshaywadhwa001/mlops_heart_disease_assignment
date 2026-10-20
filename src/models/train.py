@@ -27,7 +27,7 @@ from src.data.preprocessing import (
 	read_raw_data,
 )
 
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_RESULTS_PATH = PROJECT_ROOT / "reports" / "model_comparison.csv"
 DEFAULT_TRACKING_URI = f"sqlite:///{(PROJECT_ROOT / 'mlflow.db').as_posix()}"
 DEFAULT_EXPERIMENT_NAME = "heart-disease-model-development"

@@ -5,7 +5,7 @@
 **Email:** 2025ae05567@wilp.bits-pilani.ac.in
 **BITS ID:** 2025AE05567
 **Dataset:** UCI Heart Disease, processed Cleveland subset  
-**Repository URL:** [github.com/lakshaywadhwa001/mlops_assignment](https://github.com/lakshaywadhwa001/mlops_assignment)
+**Repository URL:** [github.com/lakshaywadhwa001/mlops_heart_disease_assignment](https://github.com/lakshaywadhwa001/mlops_heart_disease_assignment)
 **Deployment:** Local Minikube; API available by port-forward while the VM and forward are running.
 
 ## 1. Objective and scope

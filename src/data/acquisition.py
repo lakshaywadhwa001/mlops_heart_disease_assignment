@@ -14,7 +14,7 @@ SOURCE_URL = (
 	"https://archive.ics.uci.edu/ml/machine-learning-databases/"
 	"heart-disease/processed.cleveland.data"
 )
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_DESTINATION = PROJECT_ROOT / "data" / "raw" / "processed.cleveland.data"
 EXPECTED_COLUMNS = 14
 MINIMUM_ROWS = 300
